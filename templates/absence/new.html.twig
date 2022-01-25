@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Absence{% endblock %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% block body %}
+
+    {{ include('absence/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary" href="{{ path('absence_index') }}">Liste d'absences</a>
+{% endblock %}

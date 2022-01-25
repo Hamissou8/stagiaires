@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Absence{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Justification</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for absence in absences %}
+            <tr>
+                <td>{{ absence.id }}</td>
+                <td>{{ absence.dateDebut ? absence.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ absence.dateFin ? absence.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ absence.justification }}</td>
+                <td>
+                    <a class="btn btn-dark" href="{{ path('absence_show', {'id': absence.id}) }}">Details</a>
+                    <a class="btn btn-dark" href="{{ path('absence_edit', {'id': absence.id}) }}">Modifier</a>
+                    <a class="btn btn-danger" href="{{ path('absence_delete', {'id': absence.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune absence enregistrer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('absence_new') }}">Ajouter une absence</a>
+{% endblock %}

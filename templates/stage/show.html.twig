@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stage{% endblock %}
+
+{% block body %}
+    <h1>Stage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stage.id }}</td>
+            </tr>
+            <tr>
+                <th>Id stage</th>
+                <td>{{ stage.idStage }}</td>
+            </tr>
+            <tr>
+                <th>Titre sujet</th>
+                <td>{{ stage.titreSujetStage }}</td>
+            </tr>
+            <tr>
+                <th>Description sujet</th>
+                <td>{{ stage.descriptionSuet }}</td>
+            </tr>
+            <tr>
+            <th>Date debut</th>
+            <td>{{ stage.dateDebut ? stage.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date fin</th>
+                <td>{{ stage.dateFin ? stage.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Etat Avancement</th>
+                <td>{{ stage.etatAvancement }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stage_index') }}">Liste de stages</a>
+
+    <a class="btn btn-outline-dark" href="{{ path('stage_edit', {'id': stage.id}) }}">Modier</a>
+
+    {{ include('stage/_delete_form.html.twig') }}
+{% endblock %}

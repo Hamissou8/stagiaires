@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ajout stagiaire{% endblock %}
+
+{% block body %}
+
+    {{ include('stagiaire/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary" href="{{ path('stagiaire_index') }}">Liste des stagiaires</a>
+{% endblock %}

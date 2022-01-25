@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stagiaire{% endblock %}
+
+{% block body %}
+    <h1>Liste des stagiaires</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id stagiaire</th>
+                <th>Cin</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Sexe</th>
+                <th>Date naissance</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Qualite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stagiaire in stagiaires %}
+            <tr>
+                <td>{{ stagiaire.id }}</td>
+                <td>{{ stagiaire.idStagiaire }}</td>
+                <td>{{ stagiaire.cin }}</td>
+                <td>{{ stagiaire.nom }}</td>
+                <td>{{ stagiaire.prenom }}</td>
+                <td>{{ stagiaire.sexe }}</td>
+                <td>{{ stagiaire.dateNaiss }}</td>
+                <td>{{ stagiaire.email }}</td>
+                <td>{{ stagiaire.telephone }}</td>
+                <td>{{ stagiaire.qualite }}</td>
+                <td>
+                    <a class="btn btn-dark" href="{{ path('stagiaire_show', {'id': stagiaire.id}) }}">Details</a>
+                    <a class="btn btn-dark" href="{{ path('stagiaire_edit', {'id': stagiaire.id}) }}">Modifier</a>
+                    <a class="btn btn-danger" href="{{ path('stagiaire_delete', {'id': stagiaire.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucun stagiaire enregistrer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('stagiaire_new') }}">Ajouter un stagiaire</a>
+{% endblock %}
+ 

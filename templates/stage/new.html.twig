@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}Ajout Stage{% endblock %}
+
+{% block body %}
+    {{ include('stage/_form.html.twig') }}
+
+    <a class="btn-outline-primary" href="{{ path('stage_index') }}">Liste des stages</a>
+{% endblock %}

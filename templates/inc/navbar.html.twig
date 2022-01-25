@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('home')}}">ACCUEIL</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            AJOUTER
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ path('stagiaire_new') }}">STAGIAIRE</a></li>
+            <li><a class="dropdown-item" href="{{ path('encadrant_new') }}">ENCADRANT</a></li>
+            <li><a class="dropdown-item" href="{{ path('stage_new') }}">STAGE</a></li>
+            <li><a class="dropdown-item" href="{{ path('absence_new') }}">ABSENCE</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ path('app_register') }}">USER</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            AFFICHER
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{{ path('stagiaire_index') }}">STAGIAIRES</a></li>
+        <li><a class="dropdown-item" href="{{ path('encadrant_index') }}">ENCADRANTS</a></li>
+        <li><a class="dropdown-item" href="{{ path('stage_index') }}">STAGES</a></li>
+        <li><a class="dropdown-item" href="{{ path('absence_index') }}">ABSENCES</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+       <a class="nav-item btn btn-primary" href="{{ path('app_logout') }}">DECONNEXION</a>
+      </form>
+    </div>
+  </div>
+</nav>

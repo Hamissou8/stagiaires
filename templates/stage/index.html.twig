@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stage{% endblock %}
+
+{% block body %}
+    <h1>Liste de stages</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id stage</th>
+                <th>Titre du sujet</th>
+                <th>Description du Sujet</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Etat Avancement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stage in stages %}
+            <tr>
+                <td>{{ stage.id }}</td>
+                <td>{{ stage.idStage }}</td>
+                <td>{{ stage.titreSujetStage }}</td>
+                <td>{{ stage.descriptionSuet }}</td>
+                <td>{{ stage.dateDebut ? stage.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ stage.dateFin ? stage.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ stage.etatAvancement }}</td>
+                <td>
+                    <a class="btn btn-dark" href="{{ path('stage_show', {'id': stage.id}) }}">Details</a>
+                    <a class="btn btn-dark" href="{{ path('stage_edit', {'id': stage.id}) }}">Modier</a>
+                    <a class="btn btn-danger" href="{{ path('stage_delete', {'id': stage.id}) }}">Suppimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun stage Enregistrer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('stage_new') }}">Ajouter un stage</a>
+{% endblock %}

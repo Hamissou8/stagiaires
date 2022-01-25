@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Stage{% endblock %}
+
+{% block body %}
+    <h1>Modifier ce stage</h1>
+
+    {{ include('stage/_form.html.twig', {'button_label': 'Modier'}) }}
+
+    <a class="btn btn-outline-primary" href="{{ path('stage_index') }}">Liste des stages</a>
+
+    {{ include('stage/_delete_form.html.twig') }}
+{% endblock %}

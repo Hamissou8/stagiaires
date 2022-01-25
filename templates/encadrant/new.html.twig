@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter encadrant{% endblock %}
+
+{% block body %}
+
+    {{ include('encadrant/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary" href="{{ path('encadrant_index') }}">Liste d'encadrants</a>
+{% endblock %}

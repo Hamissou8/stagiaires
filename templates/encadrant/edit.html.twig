@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modier Encadrant{% endblock %}
+
+{% block body %}
+    
+    {{ include('encadrant/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a class="btn btn-outline-primary" href="{{ path('encadrant_index') }}">Liste d'encadrants</a>
+
+    {{ include('encadrant/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Encadrant index{% endblock %}
+
+{% block body %}
+    <h1>Encadrants</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cin</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for encadrant in encadrants %}
+            <tr>
+                <td>{{ encadrant.id }}</td>
+                <td>{{ encadrant.cin }}</td>
+                <td>{{ encadrant.nom }}</td>
+                <td>{{ encadrant.prenom }}</td>
+                <td>{{ encadrant.email }}</td>
+                <td>{{ encadrant.telephone }}</td>
+                <td>
+                    <a class="btn btn-dark" href="{{ path('encadrant_show', {'id': encadrant.id}) }}">Details</a>
+                    <a class="btn btn-dark" href="{{ path('encadrant_edit', {'id': encadrant.id}) }}">Modifier</a>
+                    <a class="btn btn-danger" href="{{ path('encadrant_delete', {'id': encadrant.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun encadrant enregistrer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('encadrant_new') }}">Ajouter un encadrant</a>
+{% endblock %}
